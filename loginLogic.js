@@ -12,9 +12,7 @@ function LogIn()
     const users = obtenerUsuarios();
 
     // Find user
-    const userFound = users.find(
-        user => user.usuario === username
-    );
+    const userFound = users.find(user => user.usuario === username);
 
     // User check
     if (!userFound) 
@@ -29,22 +27,29 @@ function LogIn()
         alert("Contraseña incorrecta");
         return;
     }
+    
+    sessionStorage.setItem("isLogged", "true");
 
-    alert("Inicio de sesión correcto");
+    window.location.href = "ProductsPage.html";
+}
+
+function LogOut()
+{
+    sessionStorage.removeItem("isLogged");
+
+    window.location.href = "Login.html";
 }
 
 function SignIn() 
 {
-    window.location.href = "Pages/SignInPage.html";
+    window.location.href = "SignInPage.html";
 }
 
-const selectPoblacion =
-    document.getElementById("poblacion");
+const selectPoblacion = document.getElementById("poblacion");
 
 poblaciones.forEach(item => {
 
-    const option =
-        document.createElement("option");
+    const option = document.createElement("option");
 
     option.value = item.poblacion;
 
@@ -167,5 +172,5 @@ function guardarUsuario()
 
     agregarUsuario(newUser);
 
-    window.location.href = "../index.html";
+    window.location.href = "LogIn.html";
 }
