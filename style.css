@@ -1,0 +1,17 @@
+/* Reset básico */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe600;
+  color: black;
+  min-height: 100vh;
+  padding: 20px;
+}

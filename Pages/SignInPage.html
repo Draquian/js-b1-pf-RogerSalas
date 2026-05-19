@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+
+<body>
+
+    <h1>Registro de usuario</h1>
+
+    <form>
+
+        <input type="text" id="nombre" placeholder="Nombre">
+        <br><br>
+
+        <input type="text" id="apellidos" placeholder="Apellidos">
+        <br><br>
+
+        <input type="text" id="direccion" placeholder="Dirección">
+        <br><br>
+
+        <select id="poblacion">
+            <option value="">
+                Selecciona una población
+            </option>
+        </select>
+        <br><br>
+
+        <input type="text" id="codigoPostal" placeholder="Código Postal">
+        <br><br>
+
+        <input type="text" id="telefono" placeholder="Teléfono">
+        <br><br>
+
+        <input type="email" id="correoElectronico" placeholder="Correo Electrónico">
+        <br><br>
+
+        <input type="text" id="usuario" placeholder="Usuario">
+        <br><br>
+
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        <br><br>
+
+        <button type="button" onclick="guardarUsuario()">
+            Guardar
+        </button>
+
+    </form>
+
+    <script src="../class/user.js"></script>
+    <script src="../class/datos.js"></script>
+    <script src="../loginLogic.js"></script>
+
+</body>
+
+</html>
