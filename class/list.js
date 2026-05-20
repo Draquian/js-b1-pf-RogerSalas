@@ -1,37 +1,37 @@
 class List {
 
     constructor(usuario, fecha, productos = []) {
-        this.usuario = usuario;
-        this.fecha = fecha;
-        this.productos = productos;
+        this._usuario = usuario;
+        this._fecha = fecha;
+        this._productos = productos;
     }
 
     // SETTERS
 
     setUsuario(usuario) {
-        this.usuario = usuario;
+        this._usuario = usuario;
     }
 
     setFecha(fecha) {
-        this.fecha = fecha;
+        this._fecha = fecha;
     }
 
     setProductos(productos) {
-        this.productos = productos;
+        this._productos = productos;
     }
 
     // GETTERS
 
     getUsuario() {
-        return this.usuario;
+        return this._usuario;
     }
 
     getFecha() {
-        return this.fecha;
+        return this._fecha;
     }
 
     getProductos() {
-        return this.productos;
+        return this._productos;
     }
 
     // Método opcional para añadir productos
