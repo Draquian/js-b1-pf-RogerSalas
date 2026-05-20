@@ -1,35 +1,35 @@
 class Product {
 
     constructor(nombre, tipo, enlace) {
-        this.nombre = nombre;
-        this.tipo = tipo;
-        this.enlace = enlace;
+        this._nombre = nombre;
+        this._tipo = tipo;
+        this._enlace = enlace;
     }
 
     // SETTERS
     setNombre(nombre) {
-        this.nombre = nombre;
+        this._nombre = nombre;
     }
 
     setTipo(tipo) {
-        this.tipo = tipo;
+        this._tipo = tipo;
     }
 
     setEnlace(enlace) {
-        this.enlace = enlace;
+        this._enlace = enlace;
     }
 
     // GETTERS
     getNombre() {
-        return this.nombre;
+        return this._nombre;
     }
 
     getTipo() {
-        return this.tipo;
+        return this._tipo;
     }
 
     getEnlace() {
-        return this.enlace;
+        return this._enlace;
     }
 }
 
@@ -39,9 +39,9 @@ function mostrarProductos(button)
     const tipo = button.querySelector("img").alt;
 
     // Filtrar productos por tipo
-    const productosFiltrados = productos.filter(producto => producto.tipo === tipo);
+    const productosFiltrados = productos.filter(producto => producto._tipo === tipo);
 
-    alert(productosFiltrados[0].nombre);
+    alert(productosFiltrados[0]._nombre);
 
     // Contenedor
     /*const container = document.getElementById("productosContainer");
