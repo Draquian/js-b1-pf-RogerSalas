@@ -57,7 +57,7 @@ class User {
     }
 
     setContrasena(contrasena) {
-        this.contrasena = contrasena;
+        this._contrasena = contrasena;
     }
 
     // GETTERS

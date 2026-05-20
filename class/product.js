@@ -41,10 +41,8 @@ function mostrarProductos(button)
     // Filtrar productos por tipo
     const productosFiltrados = productos.filter(producto => producto._tipo === tipo);
 
-    alert(productosFiltrados[0]._nombre);
-
     // Contenedor
-    /*const container = document.getElementById("productosContainer");
+    const container = document.getElementById("productosContainer");
 
     // Limpiar contenido anterior
     container.innerHTML = "";
@@ -55,13 +53,13 @@ function mostrarProductos(button)
         container.innerHTML += `
             <div>
                 <h3>
-                    ${producto.nombre}
+                    ${producto._nombre}
                 </h3>
                 <img
-                    src="${producto.enlace}"
+                    src="${producto._enlace}"
                     width="150"
                 >
             </div>
         `;
-    });*/
+    });
 }
