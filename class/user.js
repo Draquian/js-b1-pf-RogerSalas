@@ -11,49 +11,49 @@ class User {
         usuario,
         contrasena
     ) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.direccion = direccion;
-        this.poblacion = poblacion;
-        this.codigoPostal = codigoPostal;
-        this.telefono = telefono;
-        this.correoElectronico = correoElectronico;
-        this.usuario = usuario;
-        this.contrasena = contrasena;
+        this._nombre = nombre;
+        this._apellidos = apellidos;
+        this._direccion = direccion;
+        this._poblacion = poblacion;
+        this._codigoPostal = codigoPostal;
+        this._telefono = telefono;
+        this._correoElectronico = correoElectronico;
+        this._usuario = usuario;
+        this._contrasena = contrasena;
     }
 
     // SETTERS
 
     setNombre(nombre) {
-        this.nombre = nombre;
+        this._nombre = nombre;
     }
 
     setApellidos(apellidos) {
-        this.apellidos = apellidos;
+        this._apellidos = apellidos;
     }
 
     setDireccion(direccion) {
-        this.direccion = direccion;
+        this._direccion = direccion;
     }
 
     setPoblacion(poblacion) {
-        this.poblacion = poblacion;
+        this._poblacion = poblacion;
     }
 
     setCodigoPostal(codigoPostal) {
-        this.codigoPostal = codigoPostal;
+        this._codigoPostal = codigoPostal;
     }
 
     setTelefono(telefono) {
-        this.telefono = telefono;
+        this._telefono = telefono;
     }
 
     setCorreoElectronico(correoElectronico) {
-        this.correoElectronico = correoElectronico;
+        this._correoElectronico = correoElectronico;
     }
 
     setUsuario(usuario) {
-        this.usuario = usuario;
+        this._usuario = usuario;
     }
 
     setContrasena(contrasena) {
@@ -63,39 +63,39 @@ class User {
     // GETTERS
 
     getNombre() {
-        return this.nombre;
+        return this._nombre;
     }
 
     getApellidos() {
-        return this.apellidos;
+        return this._apellidos;
     }
 
     getDireccion() {
-        return this.direccion;
+        return this._direccion;
     }
 
     getPoblacion() {
-        return this.poblacion;
+        return this._poblacion;
     }
 
     getCodigoPostal() {
-        return this.codigoPostal;
+        return this._codigoPostal;
     }
 
     getTelefono() {
-        return this.telefono;
+        return this._telefono;
     }
 
     getCorreoElectronico() {
-        return this.correoElectronico;
+        return this._correoElectronico;
     }
 
     getUsuario() {
-        return this.usuario;
+        return this._usuario;
     }
 
     getContrasena() {
-        return this.contrasena;
+        return this._contrasena;
     }
 }
 
