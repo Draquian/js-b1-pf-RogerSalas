@@ -23,7 +23,6 @@ class User {
     }
 
     // SETTERS
-
     setNombre(nombre) {
         this._nombre = nombre;
     }
@@ -61,7 +60,6 @@ class User {
     }
 
     // GETTERS
-
     getNombre() {
         return this._nombre;
     }

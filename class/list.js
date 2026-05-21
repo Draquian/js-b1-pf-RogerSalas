@@ -34,10 +34,31 @@ class List {
         return this._productos;
     }
 
-    // Método opcional para añadir productos
-
     agregarProducto(nombreProducto, cantidad) {
         this.productos.push([nombreProducto, cantidad]);
     }
 }
 
+function test()
+{
+    alert("THIS IS A TEST");
+}
+
+function obtenerListas() {
+    return JSON.parse(localStorage.getItem("listas")) || [];
+}
+
+function guardarListas(List) {
+    localStorage.setItem(
+        "listas",
+        JSON.stringify(List)
+    );
+}
+
+function agregarLista(List) {
+    const listas = obtenerListas();
+
+    listas.push(List);
+
+    guardarListas(listas);
+}

@@ -34,13 +34,6 @@ function LogIn()
     window.location.href = "ProductsPage.html";
 }
 
-function LogOut()
-{
-    sessionStorage.removeItem("isLogged");
-
-    window.location.href = "Login.html";
-}
-
 function SignIn() 
 {
     window.location.href = "SignInPage.html";

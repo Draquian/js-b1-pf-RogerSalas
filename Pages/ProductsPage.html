@@ -9,11 +9,12 @@
 </head>
 
 <body>
-    <button class="user-btn" onclick="displayLogOut()">
-        <img src="../images/icon.png" alt="Usuario">
+    <button class="user-btn" onclick="LogOut()">
+        <img src="../images/user.jpg" alt="Usuario" width="20" height="20">
         <span id="userName"></span>
     </button>
-    
+    <br><br>
+
     <button  onclick="mostrarProductos(this)">
         <img src="../images/icon.png" alt="Frutas y vegetales" width="100" height="100">
         <div>
@@ -49,11 +50,36 @@
         </div>
     </button>
 
+    <button  onclick="info()">
+        <div>
+            INFO
+        </div>
+    </button>
+
+    <button  onclick="saveList()">
+        <div>
+            Guardar
+        </div>
+    </button>
+
+    <button  onclick="mostrarLista()">
+        <div>
+            Mostrar
+        </div>
+    </button>
+
+    <button  onclick="mostarTodasLasListas()">
+        <div>
+            Listas
+        </div>
+    </button>
+
     <div id="productosContainer"></div>
 
     <script src="../loginCheck.js"></script>
     <script src="../class/user.js"></script>
     <script src="../class/product.js"></script>
+    <script src="../class/list.js"></script>
     <script src="../class/datos.js"></script>
 
 </body>

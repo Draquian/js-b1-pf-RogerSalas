@@ -50,16 +50,60 @@ function mostrarProductos(button)
     // Mostrar productos
     productosFiltrados.forEach(producto =>
     {
-        container.innerHTML += `
-            <div>
-                <h3>
-                    ${producto._nombre}
-                </h3>
-                <img
-                    src="${producto._enlace}"
-                    width="150"
-                >
-            </div>
+        // Crear botón
+        const productButton = document.createElement("button");
+
+        // Contenido del botón
+        productButton.innerHTML = `
+            <h3>${producto._nombre}</h3>
+            <img
+                src="${producto._enlace}"
+                width="150"
+            >
         `;
+
+        // Listener
+        productButton.addEventListener("click", () =>
+        {
+            addProductToList(producto);
+        });
+
+        // Agregar al contenedor
+        container.appendChild(productButton);
     });
 }
+
+let listaDeProductos = [];
+
+function addProductToList(producto)
+{
+    alert(producto._nombre);
+
+    listaDeProductos.push(producto);
+}
+
+function info()
+{
+    if (listaDeProductos && listaDeProductos.length > 0)
+    {
+        alert(listaDeProductos.length);
+    }
+    else
+        alert("ERROR");
+
+}
+
+function removeProducto(nombreProducto)
+{
+    listaDeProductos = listaDeProductos.filter(producto => producto._nombre !== nombreProducto);
+}
+
+function saveList()
+{
+    const user = JSON.parse(sessionStorage.getItem("user"));
+
+    const newList = new List(user._usuario, new Date(), listaDeProductos);
+
+    agregarLista()
+}
+
