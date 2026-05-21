@@ -29,6 +29,7 @@ function LogIn()
     }
     
     sessionStorage.setItem("isLogged", "true");
+    sessionStorage.setItem("user", JSON.stringify(userFound))
 
     window.location.href = "ProductsPage.html";
 }
