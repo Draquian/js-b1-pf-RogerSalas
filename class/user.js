@@ -117,3 +117,7 @@ function agregarUsuario(usuario) {
 
     guardarUsuarios(usuarios);
 }
+
+const user = JSON.parse(sessionStorage.getItem("user"));
+
+document.getElementById("userName").textContent =`${user._nombre} ${user._apellidos}`;
