@@ -88,6 +88,14 @@ function mostrarProductos(button)
     });
 }
 
+  function pedirNombre() {
+    let nombre = prompt("Seleccione la cantidad:");
+
+    if (nombre !== null) {
+      alert("Hola " + nombre);
+    }
+  }
+
 let listaDeProductos = [];
 
 function addProductToList(producto)
