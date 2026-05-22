@@ -72,31 +72,31 @@ function mostrarProductos(button)
     });
 }
 
-  function pedirNumero(producto) {
-    let numero;
+function pedirNumero(producto) {
+  let numero = 1;
 
-    do {
-      numero = prompt("Introduce un número mayor o igual a 1:");
+  do {
+    numero = prompt(
+      "Introduce un número entero mayor o igual a 1:",
+      numero
+    );
 
-      // Si cancela
-      if (numero === null) {
-        return;
-      }
+    // Si cancela
+    if (numero === null) {
+      return;
+    }
 
-      numero = Number(numero);
+    numero = Number(numero);
 
-    } while (isNaN(numero) || numero < 1);
+  } while (!Number.isInteger(numero) || numero < 1);
 
-    alert("We add " + numero + " " + producto._nombre);
-	addProductToList(producto, numero)
-  }
+  addProductToList(producto, numero);
+}
 
 let listaDeProductos = [];
 
 function addProductToList(producto, numero)
 {
-    alert(producto._nombre + "-" + numero);
-
     listaDeProductos.push({
         nombre: producto._nombre,
         cantidad: numero
@@ -113,6 +113,11 @@ function info()
     {
         alert("ERROR");
     }
+}
+
+function getCurrentList()
+{
+    return listaDeProductos;
 }
 
 function removeProducto(nombreProducto)
