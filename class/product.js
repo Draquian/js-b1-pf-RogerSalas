@@ -97,31 +97,41 @@ function addProductToList(producto, numero)
 {
     alert(producto._nombre + "-" + numero);
 
-    listaDeProductos.push(producto);
+    listaDeProductos.push({
+        nombre: producto._nombre,
+        cantidad: numero
+    });
 }
 
 function info()
 {
     if (listaDeProductos && listaDeProductos.length > 0)
     {
-        alert(listaDeProductos[0]._nombre);
+        alert(listaDeProductos[0].nombre + " - " + listaDeProductos[0].cantidad);
     }
     else
+    {
         alert("ERROR");
-
+    }
 }
 
 function removeProducto(nombreProducto)
 {
-    listaDeProductos = listaDeProductos.filter(producto => producto._nombre !== nombreProducto);
+    listaDeProductos = listaDeProductos.filter(
+        producto => producto.nombre !== nombreProducto
+    );
 }
 
 function saveList()
 {
     const user = JSON.parse(sessionStorage.getItem("user"));
 
-    const newList = new List(user._usuario, new Date(), listaDeProductos);
+    const newList = new List(
+        user._usuario,
+        new Date(),
+        listaDeProductos
+    );
 
-    agregarLista()
+    agregarLista();
 }
 
