@@ -50,16 +50,7 @@ function mostrarProductos(button)
     // Mostrar productos
     productosFiltrados.forEach(producto =>
     {
-        // Crear contenedor
-        const wrapper = document.createElement("div");
-    
-        // Crear input cantidad
-        const cantidadInput = document.createElement("input");
-        cantidadInput.type = "number";
-        cantidadInput.min = "1";
-        cantidadInput.value = "1";
-        
-        // Crear botón
+       // Crear botón
         const productButton = document.createElement("button");
 
         // Contenido del botón
@@ -74,21 +65,14 @@ function mostrarProductos(button)
         // Listener
     productButton.addEventListener("click", () =>
     {
-        const cantidad = parseInt(cantidadInput.value);
-
-        addProductToList(producto, cantidad);
+        pedirNumero(producto)
     });
 
-    // Agregar elementos
-    wrapper.appendChild(cantidadInput);
-    wrapper.appendChild(productButton);
-
-    // Agregar al contenedor principal
-    container.appendChild(wrapper);
+    container.appendChild(productButton);
     });
 }
 
-  function pedirNumero() {
+  function pedirNumero(producto) {
     let numero;
 
     do {
@@ -103,14 +87,15 @@ function mostrarProductos(button)
 
     } while (isNaN(numero) || numero < 1);
 
-    alert("Número válido: " + numero);
+    alert("We add " + numero + " " + producto._nombre);
+	addProductToList(producto, numero)
   }
 
 let listaDeProductos = [];
 
-function addProductToList(producto)
+function addProductToList(producto, numero)
 {
-    alert(producto._nombre);
+    alert(producto._nombre + "-" + numero);
 
     listaDeProductos.push(producto);
 }
@@ -119,7 +104,7 @@ function info()
 {
     if (listaDeProductos && listaDeProductos.length > 0)
     {
-        alert(listaDeProductos.length);
+        alert(listaDeProductos[0]._nombre);
     }
     else
         alert("ERROR");
