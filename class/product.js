@@ -88,12 +88,22 @@ function mostrarProductos(button)
     });
 }
 
-  function pedirNombre() {
-    let nombre = prompt("Seleccione la cantidad:");
+  function pedirNumero() {
+    let numero;
 
-    if (nombre !== null) {
-      alert("Hola " + nombre);
-    }
+    do {
+      numero = prompt("Introduce un número mayor o igual a 1:");
+
+      // Si cancela
+      if (numero === null) {
+        return;
+      }
+
+      numero = Number(numero);
+
+    } while (isNaN(numero) || numero < 1);
+
+    alert("Número válido: " + numero);
   }
 
 let listaDeProductos = [];
