@@ -132,6 +132,6 @@ function saveList()
         listaDeProductos
     );
 
-    agregarLista();
+    agregarLista(newList);
 }
 
