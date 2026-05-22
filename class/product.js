@@ -50,6 +50,15 @@ function mostrarProductos(button)
     // Mostrar productos
     productosFiltrados.forEach(producto =>
     {
+        // Crear contenedor
+        const wrapper = document.createElement("div");
+    
+        // Crear input cantidad
+        const cantidadInput = document.createElement("input");
+        cantidadInput.type = "number";
+        cantidadInput.min = "1";
+        cantidadInput.value = "1";
+        
         // Crear botón
         const productButton = document.createElement("button");
 
@@ -63,13 +72,19 @@ function mostrarProductos(button)
         `;
 
         // Listener
-        productButton.addEventListener("click", () =>
-        {
-            addProductToList(producto);
-        });
+    productButton.addEventListener("click", () =>
+    {
+        const cantidad = parseInt(cantidadInput.value);
 
-        // Agregar al contenedor
-        container.appendChild(productButton);
+        addProductToList(producto, cantidad);
+    });
+
+    // Agregar elementos
+    wrapper.appendChild(cantidadInput);
+    wrapper.appendChild(productButton);
+
+    // Agregar al contenedor principal
+    container.appendChild(wrapper);
     });
 }
 
