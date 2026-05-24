@@ -30,15 +30,18 @@ function showAllList()
 
     const listasFiltrados = productos.filter(user => user._usuario === currentUser);
 
-     obtenerListas().forEach(listasFiltrados =>{
-        lista.forEach(item =>
+listasFiltrados.forEach(listas =>{
+
+listas._fecha
+
+        listas._productos.forEach(item =>
         {
             const li =
                 document.createElement("li");
 
             li.innerHTML = `
-                <strong>${item._fecha}</strong>
-                -  ${item._productos}
+                <strong>${item._nombre}</strong>
+                -  ${item._cantidad}
             `;
 
             container.appendChild(li);
