@@ -40,8 +40,8 @@ listas._fecha
                 document.createElement("li");
 
             li.innerHTML = `
-                <strong>${item._nombre}</strong>
-                -  ${item._cantidad}
+                <strong>${item.nombre}</strong>
+                -  ${item.cantidad}
             `;
 
             container.appendChild(li);
