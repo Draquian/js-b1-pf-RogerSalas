@@ -5,83 +5,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Select your products</title>
+    <link rel="stylesheet" href="../style.css" />
 </head>
+<body id = "productsBody">
+    <header id = "upperBar">
+        <button class="user-btn" onclick="LogOut()" id = "LogOut">
+            <img src="../images/user.jpg" alt="Usuario" width="20" height="20">
+            <span id="userName"></span>
+        </button>
+    </header>
 
-<body>
-    <button class="user-btn" onclick="LogOut()">
-        <img src="../images/user.jpg" alt="Usuario" width="20" height="20">
-        <span id="userName"></span>
-    </button>
-    <br><br>
+    <div id="productsContainer">
+        <button  onclick="mostrarProductos(this)" id = "ProductType">
+            <img src="../images/icon.png" alt="Frutas y vegetales" width="100" height="100">
+            <div>
+                <h4>Frutas y vegetales</h4>
+            </div>
+        </button>
 
-    <button  onclick="mostrarProductos(this)">
-        <img src="../images/icon.png" alt="Frutas y vegetales" width="100" height="100">
-        <div>
-            Frutas y vegetales
-        </div>
-    </button>
+        <button  onclick="mostrarProductos(this)">
+            <img src="../images/icon.png" alt="Panes y pastas" width="100" height="100">
+            <div>
+                <h4>Panes y pastas</h4>
+            </div>
+        </button>    
 
-    <button  onclick="mostrarProductos(this)">
-        <img src="../images/icon.png" alt="Panes y pastas" width="100" height="100">
-        <div>
-            Panes y pastas
-        </div>
-    </button>    
+        <button  onclick="mostrarProductos(this)">
+            <img src="../images/icon.png" alt="Leche y quesos" width="100" height="100">
+            <div>
+                <h4>Leche y quesos</h4>
+            </div>
+        </button>
 
-    <button  onclick="mostrarProductos(this)">
-        <img src="../images/icon.png" alt="Leche y quesos" width="100" height="100">
-        <div>
-            Leche y quesos
-        </div>
-    </button>
+        <button  onclick="mostrarProductos(this)">
+            <img src="../images/icon.png" alt="Carne y pescado" width="100" height="100">
+            <div>
+                <h4>Carne y pescado</h4>
+            </div>
+        </button>
 
-    <button  onclick="mostrarProductos(this)">
-        <img src="../images/icon.png" alt="Carne y pescado" width="100" height="100">
-        <div>
-            Carne y pescado
-        </div>
-    </button>
+        <button  onclick="mostrarProductos(this)">
+            <img src="../images/icon.png" alt="Cereales y pastas" width="100" height="100">
+            <div>
+                <h4>Cereales y pastas</h4>
+            </div>
+        </button>
+    </div>
 
-    <button  onclick="mostrarProductos(this)">
-        <img src="../images/icon.png" alt="Cereales y pastas" width="100" height="100">
-        <div>
-            Cereales y pastas
-        </div>
-    </button>
+    <footer id = "bottomBar">
+        <button  onclick="saveList()">
+            <div>
+                Guardar
+            </div>
+        </button>
 
-    <button  onclick="info()">
-        <div>
-            INFO
-        </div>
-    </button>
+        <button  onclick="mostrarLista()">
+            <div>
+                Mostrar
+            </div>
+        </button>
 
-    <button  onclick="saveList()">
-        <div>
-            Guardar
-        </div>
-    </button>
-
-    <button  onclick="mostrarLista()">
-        <div>
-            Mostrar
-        </div>
-    </button>
-
-    <button  onclick="mostarTodasLasListas()">
-        <div>
-            Listas
-        </div>
-    </button>
+        <button  onclick="mostrarTodasLasListas()">
+            <div>
+                Listas
+            </div>
+        </button>
+    </footer>
 
     <div id="productosContainer"></div>
 
     <script src="../loginCheck.js"></script>
     <script src="../class/user.js"></script>
-    <script src="../class/product.js"></script>
     <script src="../class/list.js"></script>
+    <script src="../class/product.js"></script>
     <script src="../class/datos.js"></script>
 
 </body>
-
 </html>

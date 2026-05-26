@@ -22,93 +22,109 @@ class User {
         this._contrasena = contrasena;
     }
 
-    // SETTERS
-    setNombre(nombre) {
+    setNombre(nombre) 
+    {
         this._nombre = nombre;
     }
 
-    setApellidos(apellidos) {
+    setApellidos(apellidos) 
+    {
         this._apellidos = apellidos;
     }
 
-    setDireccion(direccion) {
+    setDireccion(direccion) 
+    {
         this._direccion = direccion;
     }
 
-    setPoblacion(poblacion) {
+    setPoblacion(poblacion) 
+    {
         this._poblacion = poblacion;
     }
 
-    setCodigoPostal(codigoPostal) {
+    setCodigoPostal(codigoPostal) 
+    {
         this._codigoPostal = codigoPostal;
     }
 
-    setTelefono(telefono) {
+    setTelefono(telefono) 
+    {
         this._telefono = telefono;
     }
 
-    setCorreoElectronico(correoElectronico) {
+    setCorreoElectronico(correoElectronico) 
+    {
         this._correoElectronico = correoElectronico;
     }
 
-    setUsuario(usuario) {
+    setUsuario(usuario) 
+    {
         this._usuario = usuario;
     }
 
-    setContrasena(contrasena) {
+    setContrasena(contrasena) 
+    {
         this._contrasena = contrasena;
     }
 
-    // GETTERS
-    getNombre() {
+    getNombre() 
+    {
         return this._nombre;
     }
 
-    getApellidos() {
+    getApellidos() 
+    {
         return this._apellidos;
     }
 
-    getDireccion() {
+    getDireccion() 
+    {
         return this._direccion;
     }
 
-    getPoblacion() {
+    getPoblacion() 
+    {
         return this._poblacion;
     }
 
-    getCodigoPostal() {
+    getCodigoPostal() 
+    {
         return this._codigoPostal;
     }
 
-    getTelefono() {
+    getTelefono() 
+    {
         return this._telefono;
     }
 
-    getCorreoElectronico() {
+    getCorreoElectronico() 
+    {
         return this._correoElectronico;
     }
 
-    getUsuario() {
+    getUsuario() 
+    {
         return this._usuario;
     }
 
-    getContrasena() {
+    getContrasena() 
+    {
         return this._contrasena;
     }
 }
 
-function obtenerUsuarios() {
+function obtenerUsuarios() 
+{
     return JSON.parse(localStorage.getItem("usuarios")) || [];
 }
 
-function guardarUsuarios(usuarios) {
-    localStorage.setItem(
-        "usuarios",
-        JSON.stringify(usuarios)
-    );
+function guardarUsuarios(usuarios) 
+{
+    localStorage.setItem("usuarios",JSON.stringify(usuarios));
 }
 
-function agregarUsuario(usuario) {
+function agregarUsuario(usuario) 
+{
     const usuarios = obtenerUsuarios();
 
     usuarios.push(usuario);

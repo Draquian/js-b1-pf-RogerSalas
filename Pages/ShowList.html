@@ -5,22 +5,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TETST SITE</title>
+    <title>Show List</title>
 </head>
-
 <body>
-    <button class="user-btn" onclick="LogOut()">
-        <img src="../images/user.jpg" alt="Usuario" width="20" height="20">
-        <span id="userName"></span>
+    <button onclick="window.print()" id = "dontShow">
+        Imprimir
     </button>
-    <br><br>
+    <button onclick="window.history.back()" id = "dontShow">
+        Volver
+    </button>
+    <hr>
 
     <div id="listaContainer"></div>
 
     <script src="../loginCheck.js"></script>
     <script src="../class/user.js"></script>
+    <script src="../class/list.js"></script>
     <script src="../class/ShowList.js"></script>
 
 </body>
-
 </html>

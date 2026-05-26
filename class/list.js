@@ -1,91 +1,82 @@
 class List {
 
-    constructor(usuario, fecha, productos = []) {
+    constructor(usuario, fecha, productos = []) 
+    {
         this._usuario = usuario;
         this._fecha = fecha;
         this._productos = productos;
     }
 
-    // SETTERS
-
-    setUsuario(usuario) {
+    setUsuario(usuario) 
+    {
         this._usuario = usuario;
     }
 
-    setFecha(fecha) {
+    setFecha(fecha) 
+    {
         this._fecha = fecha;
     }
 
-    setProductos(productos) {
+    setProductos(productos)
+    {
         this._productos = productos;
     }
 
-    // GETTERS
-
-    getUsuario() {
+    getUsuario() 
+    {
         return this._usuario;
     }
 
-    getFecha() {
+    getFecha() 
+    {
         return this._fecha;
     }
 
-    getProductos() {
+    getProductos() 
+    {
         return this._productos;
     }
 
-    agregarProducto(nombreProducto, cantidad) {
+    agregarProducto(nombreProducto, cantidad) 
+    {
+
         this._productos.push([nombreProducto, cantidad]);
     }
 }
 
-function test()
+function obtenerListas()
 {
-    alert("THIS IS A TEST");
-}
-
-function obtenerListas() {
     return JSON.parse(localStorage.getItem("listas")) || [];
 }
 
-function guardarListas(List) {
-    localStorage.setItem(
-        "listas",
-        JSON.stringify(List)
-    );
+function guardarListas(listas)
+{
+    localStorage.setItem("listas", JSON.stringify(listas));
 }
 
-function agregarLista(List) {
+function agregarLista(lista)
+{
     const listas = obtenerListas();
 
-    listas.push(List);
+    listas.push(lista);
+
+    listas.sort((a, b) => new Date(b._fecha) - new Date(a._fecha));
 
     guardarListas(listas);
 }
 
 function mostrarLista()
 {
-    sessionStorage.setItem(
-        "modoLista",
-        "actual"
-    );
+    sessionStorage.setItem("modoLista", "actual");
 
-    sessionStorage.setItem(
-        "listaActual",
-        JSON.stringify(listaDeProductos)
-    );
+    sessionStorage.setItem("listaActual",JSON.stringify(listaDeProductos));
 
-    window.location.href =
-        "../Pages/ShowList.html";
+    window.location.href = "../Pages/ShowList.html";
 }
 
 function mostrarTodasLasListas()
 {
-    sessionStorage.setItem(
-        "modoLista",
-        "todas"
-    );
+    sessionStorage.setItem("modoLista", "todas");
 
-    window.location.href =
-        "../Pages/ShowList.html";
+    window.location.href = "../Pages/ShowList.html";
 }

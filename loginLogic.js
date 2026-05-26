@@ -1,27 +1,19 @@
 function LogIn() 
 {
-    // Username input
-    const username =
-        document.getElementById("nameInput").value;
+    const username = document.getElementById("nameInput").value;
 
-    // Password input
-    const password =
-        document.getElementById("passwordInput").value;
+    const password = document.getElementById("passwordInput").value;
 
-    // Get users
     const users = obtenerUsuarios();
 
-    // Find user
     const userFound = users.find(user => user._usuario === username);
 
-    // User check
     if (!userFound) 
     {
         alert("El usuario no existe");
         return;
     }
 
-    // Password check
     if (userFound._contrasena !== password) 
     {
         alert("Contraseña incorrecta");
@@ -52,35 +44,21 @@ poblaciones.forEach(item => {
     selectPoblacion.appendChild(option);
 });
 
-selectPoblacion.addEventListener(
-    "change",
-    function () {
+selectPoblacion.addEventListener("change",function () 
+    {
+        const poblacionSeleccionada = poblaciones.find(item =>item.poblacion === this.value);
 
-        const poblacionSeleccionada =
-            poblaciones.find(
-                item =>
-                item.poblacion === this.value
-            );
-
-        document.getElementById(
-            "codigoPostal"
-        ).value =
-            poblacionSeleccionada.codigoPostal;
+        document.getElementById("codigoPostal").value =poblacionSeleccionada.codigoPostal;
     }
 );
 
-function codigoPostalExiste(codigoPostal) {
-
-    return poblaciones.some(
-        item =>
-        item.codigoPostal === codigoPostal
-    );
+function codigoPostalExiste(codigoPostal) 
+{
+    return poblaciones.some(item => item.codigoPostal === codigoPostal);
 }
 
 function guardarUsuario()
 {
-    // INPUTS
-
     const nombreInput = document.getElementById("nombre");
 
     const apellidosInput = document.getElementById("apellidos");
@@ -140,114 +118,66 @@ function guardarUsuario()
 
     if (!telefonoValido)
     {
-        telefonoInput.setCustomValidity(
-            "El teléfono no es válido"
-        );
+        telefonoInput.setCustomValidity("El teléfono no es válido");
 
         telefonoInput.reportValidity();
 
         return;
     }
 
-
-    // EMAIL VALIDATION
-
-    const correoValido =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        .test(correoInput.value);
+    const correoValido =/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correoInput.value);
 
     if (!correoValido)
     {
-        correoInput.setCustomValidity(
-            "El correo electrónico no es válido"
-        );
+        correoInput.setCustomValidity("El correo electrónico no es válido");
 
         correoInput.reportValidity();
 
         return;
     }
 
-
-    // USERNAME VALIDATION
-
     if (usuarioInput.value.trim() === "")
     {
-        usuarioInput.setCustomValidity(
-            "Username can't be empty"
-        );
+        usuarioInput.setCustomValidity("Username can't be empty");
 
         usuarioInput.reportValidity();
 
         return;
     }
 
+    const users = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    // CHECK USERNAME EXISTS
-
-    const users =
-        JSON.parse(
-            localStorage.getItem("usuarios")
-        ) || [];
-
-    const usernameExists =
-        users.some(
-            user =>
-            user._usuario.toLowerCase() ===
-            usuarioInput.value.toLowerCase()
-        );
+    const usernameExists = users.some(user => user._usuario.toLowerCase() === usuarioInput.value.toLowerCase());
 
     if (usernameExists)
     {
-        usuarioInput.setCustomValidity(
-            "This username is already taken"
-        );
+        usuarioInput.setCustomValidity("This username is already taken");
 
         usuarioInput.reportValidity();
 
         return;
     }
 
+    const password = contrasenaInput.value;
 
-    // PASSWORD VALIDATION
+    const longitudValida = password.length >= 8;
 
-    const password =
-        contrasenaInput.value;
+    const tieneLetra = /[A-Za-z]/.test(password);
 
-    const longitudValida =
-        password.length >= 8;
+    const tieneNumero = /[0-9]/.test(password);
 
-    const tieneLetra =
-        /[A-Za-z]/.test(password);
+    const especiales = password.match(/[^A-Za-z0-9]/g) || [];
 
-    const tieneNumero =
-        /[0-9]/.test(password);
+    const tieneDosEspeciales = especiales.length >= 2;
 
-    const especiales =
-        password.match(
-            /[^A-Za-z0-9]/g
-        ) || [];
-
-    const tieneDosEspeciales =
-        especiales.length >= 2;
-
-    if (
-        !longitudValida ||
-        !tieneLetra ||
-        !tieneNumero ||
-        !tieneDosEspeciales
-    )
+    if (!longitudValida || !tieneLetra || !tieneNumero || !tieneDosEspeciales)
     {
-        contrasenaInput.setCustomValidity(
-            "La contraseña debe tener mínimo 8 caracteres, letras, números y al menos dos caracteres especiales"
-        );
+        contrasenaInput.setCustomValidity("La contraseña debe tener mínimo 8 caracteres, letras, números y al menos dos caracteres especiales");
 
         contrasenaInput.reportValidity();
 
         return;
     }
-
-
-    // CREATE USER
 
     const newUser = new User(
 
