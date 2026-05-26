@@ -35,7 +35,7 @@ class List {
     }
 
     agregarProducto(nombreProducto, cantidad) {
-        this.productos.push([nombreProducto, cantidad]);
+        this._productos.push([nombreProducto, cantidad]);
     }
 }
 
