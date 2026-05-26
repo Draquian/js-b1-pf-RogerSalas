@@ -65,9 +65,27 @@ function agregarLista(List) {
 
 function mostrarLista()
 {
-    const lista = getCurrentList();
+    sessionStorage.setItem(
+        "modoLista",
+        "actual"
+    );
 
-    sessionStorage.setItem("listaProductos",JSON.stringify(lista));
+    sessionStorage.setItem(
+        "listaActual",
+        JSON.stringify(listaDeProductos)
+    );
 
-    window.location.href ="../Pages/ShowList.html";
+    window.location.href =
+        "../Pages/ShowList.html";
+}
+
+function mostrarTodasLasListas()
+{
+    sessionStorage.setItem(
+        "modoLista",
+        "todas"
+    );
+
+    window.location.href =
+        "../Pages/ShowList.html";
 }
