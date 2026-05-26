@@ -1,17 +1,33 @@
 window.onload = function ()
 {
+    const modo =
+        sessionStorage.getItem("modoLista");
+
+    if (modo === "todas")
+    {
+        showAllList();
+    }
+    else
+    {
+        showCurrentList();
+    }
+};
+
+function showCurrentList()
+{
     const lista =
         JSON.parse(
-            sessionStorage.getItem("listaProductos")
-        ) || [];
+            sessionStorage.getItem("listaActual")
+        );
 
     const container =
         document.getElementById("listaContainer");
 
+    container.innerHTML = "";
+
     lista.forEach(item =>
     {
-        const li =
-            document.createElement("li");
+        const li = document.createElement("li");
 
         li.innerHTML = `
             <strong>${item.nombre}</strong>
@@ -20,31 +36,44 @@ window.onload = function ()
 
         container.appendChild(li);
     });
-};
-
-
+}
 
 function showAllList()
 {
-    const currentUser = JSON.parse(sessionStorage.getItem("user"));
+    const currentUser =
+        JSON.parse(sessionStorage.getItem("user"));
 
-    const listasFiltrados = productos.filter(user => user._usuario === currentUser);
+    const listas = obtenerListas();
 
-listasFiltrados.forEach(listas =>{
+    const container =
+        document.getElementById("listaContainer");
 
-listas._fecha
+    container.innerHTML = "";
 
-        listas._productos.forEach(item =>
+    const listasFiltradas =
+        listas.filter(
+            lista => lista._usuario === currentUser._usuario
+        );
+
+    listasFiltradas.forEach(lista =>
+    {
+        const title = document.createElement("h3");
+
+        title.textContent =
+            "Fecha: " + new Date(lista._fecha).toLocaleString();
+
+        container.appendChild(title);
+
+        lista._productos.forEach(item =>
         {
-            const li =
-                document.createElement("li");
+            const li = document.createElement("li");
 
             li.innerHTML = `
                 <strong>${item.nombre}</strong>
-                -  ${item.cantidad}
+                - Cantidad: ${item.cantidad}
             `;
 
             container.appendChild(li);
         });
-     })
+    });
 }
