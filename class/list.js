@@ -80,3 +80,12 @@ function mostrarTodasLasListas()
 
     window.location.href = "../Pages/ShowList.html";
 }
+
+function borrarLista()
+{
+    listaDeProductos.length = 0;
+    
+    sessionStorage.setItem("listaActual", JSON.stringify(listaDeProductos));
+
+    alert("Lista borrada");
+}
