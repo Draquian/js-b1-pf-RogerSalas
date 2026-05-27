@@ -83,7 +83,8 @@ function pedirNumero(producto)
     addProductToList(producto, numero);
 }
 
-let listaDeProductos = [];
+// let listaDeProductos = [];
+let listaDeProductos = JSON.parse(sessionStorage.getItem("listaActual")) || [];
 
 function addProductToList(producto, numero)
 {
