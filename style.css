@@ -45,6 +45,11 @@ li
   margin-bottom: 10px;
 }
 
+img
+{
+  object-fit: contain;
+}
+
 #bottomBar 
 {
     position: fixed;
